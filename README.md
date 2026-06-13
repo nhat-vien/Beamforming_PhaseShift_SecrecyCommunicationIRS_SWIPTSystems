@@ -3,6 +3,13 @@
 This project provides a Python/Tkinter GUI to compare four baseline methods
 for joint beamforming and IRS phase-shift optimization in a SWIPT secrecy setup.
 
+## Project Context
+
+This codebase is associated with the following research paper Deep learning-driven joint beamforming and phase shift optimization for secrecy communication of IRS-aided SWIPT systems:
+- https://www.sciencedirect.com/science/article/abs/pii/S1389128626002926
+
+It is also a research output of the project with code B2004.DNA.19.
+
 ## Overview
 
 - Power sweep at fixed transmit powers: 18, 23, 28, 33, 38, 43 dBm.
