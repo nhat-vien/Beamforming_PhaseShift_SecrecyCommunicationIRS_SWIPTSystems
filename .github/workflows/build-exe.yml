@@ -34,12 +34,12 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: ao_gui_power_sweep_full-windows
-          path: dist\ao_gui_power_sweep_full.exe
+          path: dist\ao_gui_power_sweep_full\ao_gui_power_sweep_full.exe
           if-no-files-found: error
 
       - name: Create GitHub Release and upload EXE
         if: startsWith(github.ref, 'refs/tags/')
         uses: softprops/action-gh-release@v2
         with:
-          files: dist\ao_gui_power_sweep_full.exe
+          files: dist\ao_gui_power_sweep_full\ao_gui_power_sweep_full.exe
           generate_release_notes: true
