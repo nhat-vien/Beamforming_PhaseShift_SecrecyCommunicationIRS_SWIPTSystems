@@ -1,0 +1,45 @@
+name: Build Executable
+
+on:
+  push:
+    tags:
+      - "v*"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    name: Build Windows EXE
+    runs-on: windows-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Build with PyInstaller (using .spec)
+        run: pyinstaller ao_gui_power_sweep_full.spec
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ao_gui_power_sweep_full-windows
+          path: dist\ao_gui_power_sweep_full.exe
+          if-no-files-found: error
+
+      - name: Create GitHub Release and upload EXE
+        if: startsWith(github.ref, 'refs/tags/')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: dist\ao_gui_power_sweep_full.exe
+          generate_release_notes: true

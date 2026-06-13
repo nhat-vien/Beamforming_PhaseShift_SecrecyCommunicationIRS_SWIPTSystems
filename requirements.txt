@@ -1,0 +1,20 @@
+# Requirements for AO GUI Application
+# =====================================
+
+# Core dependencies
+numpy>=1.21.0
+scipy>=1.7.0
+
+# Optimization (optional but recommended)
+cvxpy>=1.2.0
+
+# GUI (included in Python standard library)
+# tkinter - comes with Python
+
+# For building .exe
+pyinstaller>=5.0.0
+
+# Optional: Better solver for CVXPY
+# Install one of these for better performance:
+# scs>=3.0.0
+# clarabel>=0.5.0
