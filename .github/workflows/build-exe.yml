@@ -28,7 +28,7 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Build with PyInstaller (using .spec)
-        run: pyinstaller ao_gui_power_sweep_full.spec
+        run: pyinstaller ao_gui_power_sweep_full.py
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
